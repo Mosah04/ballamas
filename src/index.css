@@ -1,13 +1,165 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("./css/archivo.css");
+@import url("./css/chillax.css");
+
+.font-chillax {
+  font-family: "Chillax-Regular", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.font-archivo {
+  font-family: "Archivo-Regular", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.strokeBlack {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #1d1d1d;
+}
+
+.strokeWhite {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+}
+
+#icon {
+  position: absolute;
+  top: 0;
+  right: 0.2rem;
+  left: 0.2rem;
+  width: auto;
+  height: 100%;
+}
+
+/* MENU ICON */
+
+.lines,
+.lines:before,
+.lines:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  left: 0;
+  background: #1d1d1d;
+  transition: 0.5s;
+}
+
+.lines {
+  height: 0px;
+  margin-top: -1px;
+  top: 50%;
+}
+
+.lines:before,
+.lines:after {
+  content: "";
+  height: 1px;
+
+  transform-origin: 0.25rem center;
+}
+
+.lines:before {
+  top: 3px;
+}
+
+.lines:after {
+  top: -3px;
+}
+
+/* CLOSE ICON */
+
+.close {
+  transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.close .lines {
+  background: transparent;
+}
+
+.close .lines:before,
+.close .lines:after {
+  top: 0;
+  transform-origin: 50% 50%;
+}
+
+.close .lines:before {
+  transform: rotate3d(0, 0, 1, 30deg);
+}
+
+.close .lines:after {
+  transform: rotate3d(0, 0, 1, -30deg);
+}
+
+.lineAside {
+  @apply relative;
+}
+
+.lineAside::before,
+.lineAside::after {
+  content: "";
+  position: absolute;
+  height: 0.5px;
+  @apply bg-white w-1/2 top-1/2;
+}
+
+.lineAside::before {
+  right: calc(100% + 12px);
+}
+
+.lineAside::after {
+  left: calc(100% + 12px);
+}
+
+.aspect-article {
+  aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 630px) {
+  .tel\:aspect-article {
+    aspect-ratio: 4 / 5;
+    width: 300px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(322px, 1fr));
+  gap: 5px;
+}
+
+.remove-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  border-radius: 0px;
+  transition: all 0.5s ease-out;
+}
+
+.remove-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0px;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.remove-scrollbar:hover::-webkit-scrollbar {
+  width: auto;
+  height: auto;
+}
+
+.remove-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #1d1d1da4;
+  border-radius: 5px;
 }
